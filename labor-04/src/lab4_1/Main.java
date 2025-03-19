@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        readFilePrintItsLineNumbered("lab4_1_input.txt");
+        //readFilePrintItsLineNumbered("lab4_1_input.txt");
         ArrayList<Person> result=readFromCSVFile("lab4_1_input.csv");
         for(Person i:result)
             System.out.println(i);

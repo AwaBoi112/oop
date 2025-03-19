@@ -9,9 +9,10 @@ public class Customer {
     private String firstName;
     private String lastName;
 
-    public Customer(String firstName, String lastName){
+    public Customer(String firstName, String lastName, BankAccount account){
         this.firstName=firstName;
         this.lastName=lastName;
+        this.accounts.add(account);
     }
     public String getFirstName(){
         return firstName;
@@ -38,17 +39,16 @@ public class Customer {
 
     }
     public void closeAccount(String accountNumber){
-        int ok=0;
-        for(int i=0;i<accounts.size();i++){
-            if(accounts.get(i).getAccountNumber().equals(accountNumber)){
-                ok=1;
-                for(int j=i;j<accounts.size()-1;j++){
-
-                }
-
+        int ok=0,k=0;
+        for(BankAccount i:accounts){
+            if(i.getAccountNumber().equals(accountNumber)){
+                ok++;
+                accounts.remove(k);
+                break;
             }
+            k++;
         }
-        if(ok==0);
+        if(ok==0)
         System.out.println("Nem talalhato a megadott bankaccount");
 
     }
