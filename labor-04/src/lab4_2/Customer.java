@@ -9,10 +9,9 @@ public class Customer {
     private String firstName;
     private String lastName;
 
-    public Customer(String firstName, String lastName, BankAccount account){
+    public Customer(String firstName, String lastName){
         this.firstName=firstName;
         this.lastName=lastName;
-        this.accounts.add(account);
     }
     public String getFirstName(){
         return firstName;
@@ -53,8 +52,12 @@ public class Customer {
 
     }
 
-
-
-
-
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "accounts=" + accounts +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
 }

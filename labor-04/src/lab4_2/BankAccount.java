@@ -1,10 +1,8 @@
 package lab4_2;
 
 public class BankAccount {
-    //atributumok
     private String accountNumber;
     private double balance;
-    //consturctor
     public BankAccount(String number) {
         accountNumber = number;
         balance = 0;
