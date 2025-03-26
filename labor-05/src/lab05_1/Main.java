@@ -1,8 +1,11 @@
 package lab05_1;
 
+import oop.labor02.date.MyDate;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -11,9 +14,28 @@ public class Main {
 //        for(Course i:result){
 //            System.out.println(i);
 //        }
-        ArrayList<Student> result=readStudents("student.csv");
-        for(Student i:result)
-            System.out.println(i);
+        ArrayList<Student> students=readStudents("student.csv");
+        ArrayList<Course> courses=readCourses("courses.csv");
+        ArrayList<Training> trainings=new ArrayList<>();
+        Random random = new Random();
+        for (Course course : courses) {
+            Training training = new Training(course, new MyDate(2023, 3, 21), new MyDate(2023, 3, 25), 1000 + random.nextInt(1001));
+            while (training.numEnrolled() < 10) {
+                int randIndex = random.nextInt(students.size());
+                training.enroll(students.get(randIndex));
+            }
+            trainings.add(training);
+        }
+        for(Training training:trainings)
+            System.out.println(training);
+//        for (Training training : trainings) {
+//            System.out.println(training);
+//            try {
+//                printToFile(training);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
 
     }
     private static ArrayList<Course> readCourses(String filename){

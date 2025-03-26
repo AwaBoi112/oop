@@ -37,13 +37,10 @@ public class Training {
             return true;
         }
         return false;
-
     }
-
     public Course getCourse() {
         return course;
     }
-
     @Override
     public String toString() {
         return "Training{" +
